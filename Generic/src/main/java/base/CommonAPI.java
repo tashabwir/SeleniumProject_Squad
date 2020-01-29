@@ -120,7 +120,7 @@ public class CommonAPI {
             if(OS.equalsIgnoreCase("OS X")){
                 System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver");
             }else if(OS.equalsIgnoreCase("Windows")){
-                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "..\\Generic\\browser-driver\\chromedriver.exe");
             }
             driver = new ChromeDriver();
         } else if(browserName.equalsIgnoreCase("chrome-options")){
@@ -129,7 +129,7 @@ public class CommonAPI {
             if(OS.equalsIgnoreCase("OS X")){
                 System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver");
             }else if(OS.equalsIgnoreCase("Windows")){
-                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "..\\Generic\\browser-driver\\chromedriver.exe");
             }
             driver = new ChromeDriver(options);
         }
@@ -254,7 +254,6 @@ public class CommonAPI {
             System.out.println("Screenshot captured");
         } catch (Exception e) {
             System.out.println("Exception while taking screenshot " + e.getMessage());
-            ;
         }
 
     }
