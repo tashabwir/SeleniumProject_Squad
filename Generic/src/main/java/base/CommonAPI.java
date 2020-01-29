@@ -172,7 +172,7 @@ public class CommonAPI {
 
     @AfterMethod
     public void cleanUp(){
-        //driver.close();
+//        driver.close();
     }
 
     //helper methods
@@ -254,7 +254,6 @@ public class CommonAPI {
             System.out.println("Screenshot captured");
         } catch (Exception e) {
             System.out.println("Exception while taking screenshot " + e.getMessage());
-            ;
         }
 
     }
@@ -457,7 +456,7 @@ public class CommonAPI {
     }
 
     //Taking Screen shots
-    public void takeScreenShot() throws IOException {
+    public void takeScreenShot() {
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         //FileUtils.copyFile(file, new File("screenShots.png"));
     }
