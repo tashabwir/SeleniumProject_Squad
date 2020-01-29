@@ -19,10 +19,15 @@
     <parameter name="enEspanolUrl" value="https://www.bankofamerica.com/es/"/>
     <parameter name="contactUsUrl" value="https://www.bankofamerica.com/customer-service/contact-us/?request_locale=en_US"/>
 
+    <parameter name="searchBarValue" value="business loan"/>
+    <parameter name="searchBarValue2" value="Car"/>
+    <parameter name="searchBarValue3" value="investment"/>
+    <parameter name="searchBarValue4" value="direct deposit"/>
+
 
     <test name = "Web Application Test">
         <classes>
-            <class name="pageNavigation.branchPageNavigation"/>
+            <class name="pageNavigation.NavigationFromHomePage"/>
             <class name="searchBar.searchBarFunctionality"/>
         </classes>
     </test>
