@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="ATT Automation Script " parallel="false">
+<parameter name="url" value="https://www.att.com/"></parameter>
+    <test name = "ATT Home">
+        <classes>
+            <class name="Test_ATT.Test_ATT_HP"></class>
+
+        </classes>
+    </test>
+
+</suite>
