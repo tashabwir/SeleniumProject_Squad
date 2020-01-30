@@ -2,7 +2,9 @@ package searchBar;
 
 import base.CommonAPI;
 import homepage.BoaHomePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import reporting.TestLogger;
@@ -18,7 +20,6 @@ public class searchBarFunctionality extends CommonAPI{
          BoaHomePage bhp =PageFactory.initElements(driver, BoaHomePage.class);
         bhp.helpSearchBarWebElement.click();
        isPopUpWindowDisplayed(driver, ".search-container");
-
     }
     @Parameters({"searchBarValue"})
     @Test ( enabled=false )
@@ -53,13 +54,44 @@ public class searchBarFunctionality extends CommonAPI{
     }
     @Parameters({"searchBarValue3"})
     @Test ( enabled=false )
-    public void searchBarResultRelevance(String searchBarValue3){
+    //Checks if the first suggestion takes to a relevant page. Compares searched value to the page-title
+    public void searchBarResultRelevance(String searchBarValue3) throws InterruptedException {
         TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         BoaHomePage bhp =PageFactory.initElements(driver, BoaHomePage.class);
+        bhp.helpSearchBarWebElement.click();
         typeOnInputBox("#nav-search-query", searchBarValue3);
-        clickByXpath("//a[@name='Search Module - Search Results - Result 1']");
-        
+        sleepFor(3);
+        waitUntilVisible(By.className("results-heading"));
+        clickByXpath("//a[@name='Search Module - Search Results - Result 2']");
+        System.out.println(searchBarValue3);
+        System.out.println(driver.getTitle() );
+        Assert.assertTrue(driver.getTitle().toLowerCase().contains(searchBarValue3.toLowerCase() ) );
     }
+    @Parameters({"searchBarValue", "searchPageUrl"})
+    @Test ( enabled=false )
+    //Checks if the "View all search" text from he popup takes to the actual search page.
+    public void searchPageNavigationFromSearchPopUp(String searchBarValue, String searchPageUrl) {
+        TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        BoaHomePage bhp =PageFactory.initElements(driver, BoaHomePage.class);
+        bhp.helpSearchBarWebElement.click();
+        typeOnInputBox("#nav-search-query", searchBarValue);
+        waitUntilVisible(By.className("results-heading"));
+        bhp.viewAllSearchWebElement.click();
+        Assert.assertEquals(getCurrentPageUrl(),searchPageUrl);
+        }
+        @Parameters({"searchBarValue2", "feedbackPageUrl"})
+        @Test ( enabled=false )
+        //checks weather a new window for FeedBack appears on clicking the feedback web element.
+    public void feedbackWebElementBringsNewWindow(String searchBarValue2, String feedbackPageUrl){
+            TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+            BoaHomePage bhp =PageFactory.initElements(driver, BoaHomePage.class);
+            bhp.helpSearchBarWebElement.click();
+            typeOnInputBox("#nav-search-query", searchBarValue2);
+            waitUntilVisible(By.className("results-heading"));
+            bhp.feedbackWebElement.click();
+            handleNewTab(driver);
+            Assert.assertEquals(driver.getCurrentUrl(), feedbackPageUrl);
+        }
 
     }
 

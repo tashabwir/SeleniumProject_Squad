@@ -7,8 +7,8 @@
     <parameter name="cloudEnvName" value="browserstack"/>
     <parameter name="os" value="OS X"/>
     <parameter name="os_version" value="Sierra"/>
-    <parameter name="browserName" value="firefox"/>
-    <parameter name="browserVersion" value="72.0"/>
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="browserVersion" value="79.0"/>
     <parameter name="url" value="https://www.bankofamerica.com/"/>
 
     <parameter name="smallBusinessUrl" value="https://www.bankofamerica.com/smallbusiness/"/>
@@ -18,10 +18,12 @@
     <parameter name="aboutUsUrl" value="https://about.bankofamerica.com/en-us/index.html"/>
     <parameter name="enEspanolUrl" value="https://www.bankofamerica.com/es/"/>
     <parameter name="contactUsUrl" value="https://www.bankofamerica.com/customer-service/contact-us/?request_locale=en_US"/>
+    <parameter name="searchPageUrl" value="https://secure.bankofamerica.com/myaccounts/public/search-results/unAuthenticatedSearch.go"/>
+    <parameter name="feedbackPageUrl" value="https://secure.opinionlab.com/ccc01/comment_card_d.asp"/>
 
     <parameter name="searchBarValue" value="business loan"/>
     <parameter name="searchBarValue2" value="Car"/>
-    <parameter name="searchBarValue3" value="investment"/>
+    <parameter name="searchBarValue3" value="Investing"/>
     <parameter name="searchBarValue4" value="direct deposit"/>
 
 
@@ -29,6 +31,7 @@
         <classes>
             <class name="pageNavigation.NavigationFromHomePage"/>
             <class name="searchBar.searchBarFunctionality"/>
+            <class name="feedbackCommentCard.CommentCardSubmission"/>
         </classes>
     </test>
 
