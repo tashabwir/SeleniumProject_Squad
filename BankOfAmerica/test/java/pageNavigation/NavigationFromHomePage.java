@@ -8,15 +8,14 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import reporting.TestLogger;
 
-public class branchPageNavigation extends CommonAPI {
+public class NavigationFromHomePage extends CommonAPI {
 
 
 @Parameters({"smallBusinessUrl"})
-@Test
+@Test ( enabled=false )
 //This test checks weather the 'Small Business' element takes the user to the small business page
     public void smallBusinessTabFunctionality(String smallBusinessUrl) throws InterruptedException {
     TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
-    driver.get("https://bankofamerica.com");
     driver.navigate().to(smallBusinessUrl);
     String smallBusinessPageTitle = driver.getTitle();
     navigateBack();
@@ -27,7 +26,7 @@ public class branchPageNavigation extends CommonAPI {
     Assert.assertEquals(currentPageTitle, smallBusinessPageTitle);
 }
 @Parameters({"wealthManagementUrl"})
-    @Test
+    @Test ( enabled=false )
 //This test checks weather the 'Wealth Management' element takes the user to the wealth management page
     public void wealthManagementTabFunctionality(String wealthManagementUrl) throws InterruptedException {
         TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
@@ -40,7 +39,7 @@ public class branchPageNavigation extends CommonAPI {
         Assert.assertEquals(currentPageTitle, wealthManagementPageTitle);
     }
     @Parameters({"businessInstitutionUrl"})
-    @Test
+    @Test ( enabled=false )
 //This test checks weather the 'Business and Institution' element takes the user to the business and institution page
     public void businessNInstitutionTabFunctionality(String businessInstitutionUrl) throws InterruptedException {
         TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
@@ -53,7 +52,7 @@ public class branchPageNavigation extends CommonAPI {
         Assert.assertEquals(currentPageTitle, businessNInstitutionPageTitle);
     }
     @Parameters({"securityUrl"})
-    @Test
+    @Test ( enabled=false )
 //This test checks weather the 'Security' element takes the user to the security page
     public void securityTabFunctionality(String securityUrl) throws InterruptedException {
         TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
@@ -66,7 +65,7 @@ public class branchPageNavigation extends CommonAPI {
         Assert.assertEquals(currentPageTitle, securityPageTitle);
     }
     @Parameters({"aboutUsUrl"})
-    @Test
+    @Test ( enabled=false )
     //This test checks weather the 'About Us' element takes the user to the about us page
     public void aboutUsTabFunctionality(String aboutUsUrl) throws InterruptedException {
         TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
@@ -79,7 +78,7 @@ public class branchPageNavigation extends CommonAPI {
         Assert.assertEquals(currentPageTitle, aboutUsPageTitle);
     }
     @Parameters({"enEspanolUrl"})
-    @Test
+    @Test ( enabled=false )
     //This test checks weather the 'En español' element takes the user to the spanish page
     public void EnEspañolTabFunctionality(String enEspanolUrl) throws InterruptedException {
         TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
@@ -92,11 +91,10 @@ public class branchPageNavigation extends CommonAPI {
         Assert.assertEquals(currentPageTitle, enEspanolPageTitle);
     }
     @Parameters({"contactUsUrl"})
-    @Test
+    @Test ( enabled=false )
     //This test checks weather the 'Contact Us' element takes the user to the contact us page
     public void contactUsTabFunctionality(String contactUsUrl) throws InterruptedException {
         TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
-        driver.get("https://www.bankofamerica.com");
         driver.navigate().to(contactUsUrl);
         String contactUsPageTitle = driver.getTitle();
         driver.navigate().back();
@@ -105,7 +103,7 @@ public class branchPageNavigation extends CommonAPI {
         String currentPageTitle = driver.getTitle();
         Assert.assertEquals(currentPageTitle, contactUsPageTitle);
     }
-    @Test
+    @Test ( enabled=false )
     //Checks if the pop-up window for state selection appears on clicking the help element
     public void helpTabFunctionality(){
         TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));

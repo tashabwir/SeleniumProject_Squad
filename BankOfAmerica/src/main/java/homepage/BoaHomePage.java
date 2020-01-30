@@ -41,8 +41,17 @@ public class BoaHomePage extends CommonAPI{
     @FindBy(how = How.CSS, using = ".submit")
     public static WebElement helpSearchButtonWebElement;
 
+    @FindBy(how = How.XPATH, using = "//a[@class='track-me' and @name='Search Module - Top Result - See More Search Results']")
+    public static WebElement viewAllSearchWebElement;
+
     @FindBy(how = How.CSS, using = ".search-form")
     public static WebElement popUpHelpSuggestionsWebElement;
+
+    @FindBy(how = How.CSS, using = "a[name='Search Module - Feedback']")
+    public static WebElement feedbackWebElement;
+
+    @FindBy(how = How.ID, using ="navChecking")
+    public static WebElement checkingWebElement;
 
     public WebElement getHelpSearchButtonWebElement() {
         TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
